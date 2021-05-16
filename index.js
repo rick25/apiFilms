@@ -1,4 +1,5 @@
 const express = require("express");
+const apiRouter = require("./routes/api");
 require("dotenv").config(); // valores del .env
 
 const app = express();
@@ -9,9 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // rutas
-app.get("/", (req, res) => {
-  res.send("Hola mundo");
-});
+app.use("/api", apiRouter);
 
 // escuchador
 app.listen(PORT, () => {
